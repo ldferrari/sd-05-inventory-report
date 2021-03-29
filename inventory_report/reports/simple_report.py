@@ -1,4 +1,6 @@
 from datetime import datetime as d
+from collections import Counter
+import operator
 
 
 def str_date_to_number(string_date):
@@ -14,53 +16,32 @@ def find_oldest_product(stock):
     return oldest_date
 
 
+def find_first_product_to_expire(stock):
+    nearest = str_date_to_number(stock[0]["data_de_validade"])
+    today = str_date_to_number(d.today().strftime("%Y-%m-%d"))
+    for empresa in stock:
+        date_candidate = str_date_to_number(empresa["data_de_validade"])
+        if date_candidate < nearest and date_candidate > today:
+            nearest = date_candidate
+    return nearest
+
+def find_bigger_stock_company(stock):
+    companies_list = []
+    for empresa in stock:
+        companies_list.append(empresa["nome_da_empresa"])
+    most_repeated_company = Counter(companies_list).most_common(1)
+
+    return most_repeated_company[0][0]
+    
+
+
 class SimpleReport:
     @classmethod
     def generate(cls, stock):
         oldest_date = find_oldest_product(stock)
+        nearest_to_expire = find_first_product_to_expire(stock)
+        bg = find_bigger_stock_company(stock)
         line1 = f"Data de fabricação mais antiga: {oldest_date}"
-        # Data de validade mais próxima: {nearest}
-        # Empresa com maior quantidade de produtos estocados: {bigger_stock}
-        print(line1)
-
-
-stock = [
-    {
-        "id": 1,
-        "nome_do_produto": "CALENDULA OFFICINALIS FLOWERING TOP",
-        "nome_da_empresa": "Forces of Nature",
-        "data_de_fabricacao": "2020-07-04",
-        "data_de_validade": "2023-02-09",
-        "numero_de_serie": "FR48 2002 7680 97V4 W6FO LEBT 081",
-        "instrucoes_de_armazenamento": "in blandit ultrices enim",
-    },
-    {
-        "id": 2,
-        "nome_do_produto": "sodium ferric gluconate complex",
-        "nome_da_empresa": "sanofi-aventis U.S. LLC",
-        "data_de_fabricacao": "2020-05-31",
-        "data_de_validade": "2023-01-17",
-        "numero_de_serie": "SE95 2662 8860 5529 8299 2861",
-        "instrucoes_de_armazenamento": "duis bibendum morbi",
-    },
-    {
-        "id": 3,
-        "nome_do_produto": "Dexamethasone Sodium Phosphate",
-        "nome_da_empresa": "sanofi-aventis U.S. LLC",
-        "data_de_fabricacao": "2019-09-13",
-        "data_de_validade": "2023-02-13",
-        "numero_de_serie": "BA52 2034 8595 7904 7131",
-        "instrucoes_de_armazenamento": "morbi quis tortor id",
-    },
-    {
-        "id": 4,
-        "nome_do_produto": "Uricum acidum, Benzoicum acidum",
-        "nome_da_empresa": "Newton Laboratories, Inc.",
-        "data_de_fabricacao": "2019-11-08",
-        "data_de_validade": "2019-11-25",
-        "numero_de_serie": "FR38 9203 3060 400T QQ8B HHS0 Q46",
-        "instrucoes_de_armazenamento": "velit eu est congue elementum",
-    },
-]
-
-SimpleReport.generate(stock)
+        line2 = f"Data de validade mais próxima: {nearest_to_expire}"
+        line3 = f"Empresa com maior quantidade de produtos estocados: {bg}"
+        return f"{line1}\n{line2}\n{line3}\n"
