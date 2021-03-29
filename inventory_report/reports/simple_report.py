@@ -1,6 +1,5 @@
 from datetime import datetime as d
 from collections import Counter
-import operator
 
 
 def str_date_to_number(string_date):
@@ -25,6 +24,7 @@ def find_first_product_to_expire(stock):
             nearest = date_candidate
     return nearest
 
+
 def find_bigger_stock_company(stock):
     companies_list = []
     for empresa in stock:
@@ -32,7 +32,6 @@ def find_bigger_stock_company(stock):
     most_repeated_company = Counter(companies_list).most_common(1)
 
     return most_repeated_company[0][0]
-    
 
 
 class SimpleReport:
