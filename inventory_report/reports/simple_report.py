@@ -63,7 +63,7 @@ def find_biggest_stock(data):
 class SimpleReport:
 
     @classmethod
-    def generate(self, inventory):
+    def generate(cls, inventory):
         oldest = find_oldest(inventory)
         closest_expiry = find_closest_expiry(inventory)
         bg = find_biggest_stock(inventory)
