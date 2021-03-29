@@ -35,3 +35,8 @@ if __name__ == "__main__":
 # "self is a parameter name used in instance methods,
 #  cls is a parameter name used in class methods"
 # https://www.quora.com/What-is-the-difference-between-self-and-cls-in-Python
+
+# Academic honesty for reqs 1&2: consulted and combined PRs
+# https://github.com/tryber/sd-05-inventory-report/pull/2/files
+# https://github.com/tryber/sd-05-inventory-report/pull/4/files
+# https://github.com/tryber/sd-04-inventory-report/pull/21/files

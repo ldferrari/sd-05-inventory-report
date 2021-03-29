@@ -30,3 +30,6 @@ class Inventory:
 # Academic honesty: the following PR made me realize the empty files
 # that were made available so we write each format importer in them:
 # https://github.com/tryber/sd-04-inventory-report/pull/16/files
+
+# Also checked my understanding that it was better to start with req6
+# with https://github.com/tryber/sd-05-inventory-report/pull/5/commits
