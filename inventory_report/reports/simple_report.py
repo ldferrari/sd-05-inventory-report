@@ -63,14 +63,15 @@ class SimpleReport:
         )
 
         # https://docs.python.org/3/library/collections.html#collections.Counter
-        comp = Counter(
+        companies = Counter(
             company["nome_da_empresa"] for company in products
         ).most_common(1)[0][0]  # to get rid of [] and () and get only the str
 
         report = (
             f"Data de fabricação mais antiga: {oldest_product}\n"
             f"Data de validade mais próxima: {newest_product}\n"
-            f"Empresa com maior quantidade de produtos estocados: {comp}\n"
+            f"Empresa com maior quantidade de produtos estocados: "
+            f"{companies}\n"
         )
 
         return report
