@@ -30,12 +30,12 @@ class SimpleReport:
             ]
         )
 
-        prod_stock = mode([data["nome_da_empresa"] for data in list])
+        stock = mode([data["nome_da_empresa"] for data in list])
 
         relatorio = (
             f"Data de fabricação mais antiga: {data_de_fabricacao}\n"
             f"Data de validade mais próxima: {data_de_vencimento}\n"
-            f"Empresa com maior quantidade de produtos estocados: {prod_stock}\n"
+            f"Empresa com maior quantidade de produtos estocados: {stock}\n"
         )
 
         return relatorio
