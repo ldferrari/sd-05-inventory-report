@@ -33,7 +33,6 @@ def get_xml_stock(path):
     with open(path) as file:
         doc = xmltodict.parse(file.read())
         stock_jsoned = json.loads(json.dumps(doc))['dataset']['record']
-        
         return stock_jsoned
 
 
@@ -55,4 +54,4 @@ class Inventory:
 
         return report
 
-print(xmltodict.__version__)
+# print(xmltodict.__version__)
