@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto de Relatório de Estoque!
+## Boas vindas ao repositório do projeto de Relatório de Estoque!
 
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo e, se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
 
