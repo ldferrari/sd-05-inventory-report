@@ -42,6 +42,9 @@ example = [
 
 
 class SimpleReport:
+    """
+    Classe que gera o relatório simples.
+    """
     @classmethod
     def find_nearest_date(self, products_list):
         now = date.today().strftime("%Y-%m-%d")

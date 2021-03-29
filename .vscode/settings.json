@@ -10,5 +10,8 @@
     ],
     "python.formatting.provider": "black",
     "python.pythonPath": ".venv/bin/python",
-    "python.linting.pylintEnabled": false
+    "python.linting.pylintEnabled": false,
+    "cSpell.words": [
+        "xmltodict"
+    ]
 }
