@@ -8,14 +8,14 @@ class SimpleReport:
     @classmethod
     def generate(cls, lista):
         return (
-            f"Data de fabricação mais antiga: {cls.get_oldest_date(lista)}\n"
-            f"Data de validade mais próxima: {cls.get_next_date(lista)}\n"
+            f"Data de fabricação mais antiga: {cls.get_oldest(lista)}\n"
+            f"Data de validade mais próxima: {cls.get_next(lista)}\n"
             f"Empresa com maior quantidade de produtos estocados: "
             f"{cls.get_company(lista)}\n"
         )
 
     @staticmethod
-    def get_oldest_date(lista):
+    def get_oldest(lista):
         lista.sort(
             key=lambda item: datetime.strptime(
                 item["data_de_fabricacao"], DATE_FORMAT
@@ -24,7 +24,7 @@ class SimpleReport:
         return lista[0]["data_de_fabricacao"]
 
     @staticmethod
-    def get_next_date(lista):
+    def get_next(lista):
         today = datetime.today()
 
         filtered_list = list(
