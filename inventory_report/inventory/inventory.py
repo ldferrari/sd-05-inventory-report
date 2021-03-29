@@ -41,9 +41,3 @@ class Inventory:
             report = CompleteReport.generate(stock)
 
         return report
-
-
-# print(Inventory.import_data("inventory_report/data/inventory.csv", "completo"))
-print(
-    Inventory.import_data("inventory_report/data/inventory.json", "simples")
-)
