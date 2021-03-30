@@ -7,10 +7,10 @@ from inventory_report.reports.complete_report import CompleteReport
 
 
 def data_by_format(path):
-    if path.endswith(".csv"):
-        return CsvImporter.import_data(path)
-    elif path.endswith(".json"):
+    if path.endswith(".json"):
         return JsonImporter.import_data(path)
+    elif path.endswith(".csv"):
+        return CsvImporter.import_data(path)
     elif path.endswith(".xml"):
         return XmlImporter.import_data(path)
 
