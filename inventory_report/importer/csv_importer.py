@@ -17,7 +17,7 @@ class CsvImporter(Importer):
                     csv_data.append(product)
                 return csv_data
         except AssertionError:
-            raise ValueError("Formato invalido")
+            raise ValueError("Arquivo inválido")
         except FileNotFoundError:
             raise ValueError("Arquivo não encontrado")
 

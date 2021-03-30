@@ -12,7 +12,7 @@ class JsonImporter(Importer):
                 json_data = json.load(file)
             return json_data
         except AssertionError:
-            raise ValueError("Formato invalido")
+            raise ValueError("Arquivo inválido")
         except FileNotFoundError:
             raise ValueError("Arquivo não encontrado")
 

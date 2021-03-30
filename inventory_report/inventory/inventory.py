@@ -28,13 +28,13 @@ class Inventory:
             return CompleteReport.generate(data)
 
 
-# if __name__ == "__main__":
-#     print(Inventory.import_data('./data/inventory.json', 'simple'))
-#     print(Inventory.import_data('./data/inventory.json', 'complete'))
-#     print(Inventory.import_data('./data/inventory.csv', 'simple'))
-#     print(Inventory.import_data('./data/inventory.csv', 'complete'))
-#     print(Inventory.import_data('./data/inventory.xml', 'simple'))
-#     print(Inventory.import_data('./data/inventory.xml', 'complete'))
+if __name__ == "__main__":
+    print(Inventory.import_data('data/inventory.json', 'simple'))
+    print(Inventory.import_data('data/inventory.json', 'complete'))
+    print(Inventory.import_data('data/inventory.csv', 'simple'))
+    print(Inventory.import_data('data/inventory.csv', 'complete'))
+    print(Inventory.import_data('data/inventory.xml', 'simple'))
+    print(Inventory.import_data('data/inventory.xml', 'complete'))
 
 # Academic honesty: the following PR made me realize the empty files
 # that were made available so we write each format importer in them:

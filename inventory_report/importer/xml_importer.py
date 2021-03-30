@@ -8,7 +8,7 @@ class XmlImporter(Importer):
     def import_data(cls, filepath):
         # no try except structure because of flake complexity error
         if not filepath.endswith(".xml"):
-            raise ValueError("Formato invalido")
+            raise ValueError("Arquivo inválido")
         tree = ET.parse(filepath)
         root = tree.getroot()
         # print(f"root: {root}")
