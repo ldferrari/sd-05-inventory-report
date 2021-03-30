@@ -6,7 +6,7 @@ class SimpleReport:
     def __init__(self):
         pass
 
-    # Always use cls for the first argument to class methods.
+    # Always use cls for the first argument to class methods. df
     @classmethod
     def generate(cls, list):
         hoje = datetime.today()
