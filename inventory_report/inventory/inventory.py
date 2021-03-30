@@ -1,33 +1,22 @@
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
-import csv
-import json
-import xmltodict
+from inventory_report.importer.csv_importer import CsvImporter
+from inventory_report.importer.json_importer import JsonImporter
+from inventory_report.importer.xml_importer import XmlImporter
 
 
 class Inventory:
     @classmethod
     def import_data(cls, filepath, type):
-        try:
-            if filepath.endswith(".csv"):
-                with open(filepath) as file:
-                    arquivo = csv.DictReader(file, delimiter=",")
-                    product_list = [item for item in arquivo]
-                    print(arquivo)
-            elif filepath.endswith(".json"):
-                with open(filepath) as file:
-                    product_list = json.load(file)
-            elif filepath.endswith(".xml"):
-                with open(filepath) as file:
-                    arquivo = xmltodict.parse(file.read())
-                    arquivo_ordenado = arquivo["dataset"]["record"]
-                    product_list = [item for item in arquivo_ordenado]
-        except AssertionError:
-            raise ValueError("Formato invalido")
-        except FileNotFoundError:
-            raise ValueError(f"Arquivo {filepath} não encontrado")
+        product_list = []
+        if filepath.endswith(".csv"):
+            product_list = CsvImporter.import_data(filepath)
+        elif filepath.endswith(".json"):
+            product_list = JsonImporter.import_data(filepath)
+        elif filepath.endswith(".xml"):
+            product_list = XmlImporter.import_data(filepath)
+
+        if type == "simples":
+            return SimpleReport.generate(product_list)
         else:
-            if type == "simples":
-                return SimpleReport.generate(product_list)
-            else:
-                return CompleteReport.generate(product_list)
+            return CompleteReport.generate(product_list)

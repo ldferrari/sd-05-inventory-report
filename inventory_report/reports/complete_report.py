@@ -6,9 +6,11 @@ class CompleteReport(SimpleReport):
     @classmethod
     def generate(cls, list):
         report_p1 = SimpleReport.generate(list)
-        companies = [co["nome_da_empresa"] for co in list]
+        companies = [
+            co["nome_da_empresa"] for co in list
+        ]
         counting = Counter(companies)
-        co_stock = ""
+        co_stock = ''
         for cia in counting:
             co_stock += f"- {cia}: {counting[cia]}\n"
 
