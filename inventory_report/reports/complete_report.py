@@ -9,9 +9,7 @@ class CompleteReport(SimpleReport):
 
         empresas = [data["nome_da_empresa"] for data in list]
         empresas_contadas = Counter(empresas)
-        # ({'sanofi-aventis U.S. LLC': 2, 'Forces of Nature': 1, 'Newton Laboratories': 1})
-        # - Physicians Total Care, Inc.: QUANTIDADE
-        # empresas_contadas['sanofi-aventis U.S. LLC'] = 2
+
         filtered_counter = []
         for nome in empresas_contadas:
             filtered_counter.append(f"- {nome}: {empresas_contadas[nome]}")
