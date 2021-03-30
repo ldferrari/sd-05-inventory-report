@@ -1,5 +1,6 @@
 import csv
 import json
+import xmltodict
 from inventory_report.reports.simple_report import SimpleReport
 from inventory_report.reports.complete_report import CompleteReport
 
@@ -51,6 +52,7 @@ def create_report(file_path):
     if file_path.split('.')[1] == 'xml':
         report = read_xml(file_path)
         return report
+
 
 class Inventory:
     @classmethod
