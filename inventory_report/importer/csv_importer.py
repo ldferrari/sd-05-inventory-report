@@ -10,7 +10,6 @@ class CsvImporter(Importer):
             with open(filepath) as file:
                 arquivo = csv.DictReader(file, delimiter=',')
                 # print(arquivo)
-                # print("oi eu aqui")
                 product_list = [item for item in arquivo]
         except AssertionError:
             raise ValueError("Arquivo inválido")
