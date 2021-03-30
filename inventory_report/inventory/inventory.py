@@ -16,7 +16,6 @@ class Inventory:
                     print(arquivo)
             elif filepath.endswith(".json"):
                 with open(filepath) as file:
-                    # reader = file.read()
                     product_list = json.load(file)
             elif filepath.endswith(".xml"):
                 with open(filepath) as file:
