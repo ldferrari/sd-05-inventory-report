@@ -25,6 +25,7 @@ class CompleteReport(SimpleReport):
         completereport = ""
         for company in empresas_contadas:
             completereport += (
+                # "- Cantrell Drug Company: 2\n"
                 f"- {company}: {empresas_contadas[company]}\n"
             )
 
