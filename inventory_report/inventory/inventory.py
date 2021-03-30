@@ -41,7 +41,7 @@ def read_xml(file_path):
         raise ValueError("File not found")
 
 
-def create_data(file_path):
+def create_report(file_path):
     if file_path.split('.')[1] == 'csv':
         report = read_csv(file_path)
         return report
