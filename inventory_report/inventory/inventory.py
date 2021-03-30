@@ -18,7 +18,7 @@ class Inventory:
                     # print(product_list)
             elif filepath.endswith('.json'):
                 with open(filepath) as file:
-                    #reader = file.read()
+                    # reader = file.read()
                     product_list = json.load(file)
                     # print(arquivo)
                     # print("oi eu aqui")
@@ -31,8 +31,8 @@ class Inventory:
                     arquivo_ordenado = arquivo['dataset']['record']
                     product_list = [item for item in arquivo_ordenado]
                     # print(product_list)
-        except FileNotFoundError:
-            raise ValueError(f'Arquivo {filepath} não encontrado')
+        # except FileNotFoundError:
+           # raise ValueError(f'Arquivo {filepath} não encontrado')
         else:
             if type == "simples":
                 return SimpleReport.generate(product_list)
