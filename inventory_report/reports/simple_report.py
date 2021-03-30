@@ -68,4 +68,4 @@ class SimpleReport:
         return f"{r1}{r2}{r3} {b_stock[0][0]}\n"
 
 
-print(SimpleReport.generate(test_function))
+# print(SimpleReport.generate(test_function))
