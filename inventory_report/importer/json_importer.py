@@ -16,5 +16,10 @@ class JsonImporter(Importer):
         except FileNotFoundError:
             raise ValueError("Arquivo não encontrado")
 
+
+if __name__ == "__main__":
+    print(JsonImporter.import_data('inventory_report/data/inventory.json'))
+    # path passed as argument depends on where you run python currentfile.py
+
 # Difference between json.load & json.loads:
 # https://docs.python.org/3/library/json.html
