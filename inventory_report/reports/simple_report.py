@@ -46,7 +46,7 @@ class SimpleReport:
     Classe que gera o relatório simples.
     """
     @classmethod
-    def find_nearest_date(self, products_list):
+    def find_nearest_date(cls, products_list):
         now = date.today().strftime("%Y-%m-%d")
         items_list = [
             product
@@ -57,7 +57,7 @@ class SimpleReport:
         return near
 
     @classmethod
-    def count_stock(self, products_list):
+    def count_stock(cls, products_list):
         companies = [company["nome_da_empresa"] for company in products_list]
         comp_set = set(companies)
         stock = []
@@ -67,19 +67,19 @@ class SimpleReport:
         return max(stock, key=itemgetter("quantity"))
 
     @classmethod
-    def find_oldest_date(self, products_list):
+    def find_oldest_date(cls, products_list):
         return min(products_list, key=itemgetter("data_de_fabricacao"))
 
     @classmethod
-    def generate(self, products_list):
+    def generate(cls, products_list):
         report = ""
-        oldest = self.find_oldest_date(products_list)["data_de_fabricacao"]
+        oldest = cls.find_oldest_date(products_list)["data_de_fabricacao"]
         report += f"Data de fabricação mais antiga: {oldest}\n"
-        nearest = self.find_nearest_date(products_list)
+        nearest = cls.find_nearest_date(products_list)
         report += (
             f"Data de validade mais próxima: {nearest['data_de_validade']}\n"
         )
-        bigger = self.count_stock(products_list).get("nome_da_empresa")
+        bigger = cls.count_stock(products_list).get("nome_da_empresa")
         report += (
             f"Empresa com maior quantidade de produtos estocados: {bigger}\n"
         )
