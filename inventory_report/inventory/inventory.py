@@ -55,7 +55,7 @@ def create_report(file_path):
 class Inventory:
     @classmethod
     def import_data(cls, file_path, report_type):
-        report = create_data(file_path)
+        report = create_report(file_path)
 
         if (report_type == "simples"):
             return SimpleReport.generate(report)
