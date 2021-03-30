@@ -60,6 +60,3 @@ class Inventory:
 
         if (report_type == "completo"):
             return CompleteReport.generate(report)
-
-
-print(Inventory.import_data("inventory_report/data/inventory.xml", "simples"))
