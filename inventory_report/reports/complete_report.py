@@ -3,6 +3,7 @@ from collections import Counter
 
 
 class CompleteReport(SimpleReport):
+    # Always use cls for the first argument to class methods.
     @classmethod
     def generate(cls, list):
         simplereport = super().generate(list)
