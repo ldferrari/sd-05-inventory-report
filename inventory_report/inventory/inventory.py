@@ -43,11 +43,11 @@ def read_xml(file_path):
 
 
 def read_file(file_path):
-    if file_path.split('.')[1] == 'csv':
+    if file_path.endswith(".csv"):
         return read_csv(file_path)
-    if file_path.split('.')[1] == 'json':
+    if file_path.endswith("json"):
         return read_json(file_path)
-    if file_path.split('.')[1] == 'xml':
+    if file_path.endswith(".xml"):
         return read_xml(file_path)
 
 
