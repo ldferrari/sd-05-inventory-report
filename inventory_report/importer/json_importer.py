@@ -17,9 +17,3 @@ class JsonImporter(Importer):
             with open(file_path, "r") as file:
                 cls.data = json.loads(file.read())
         return cls.data
-
-
-if __name__ == "__main__":
-    f_path = "inventory_report/data/inventory"
-    f_ext = ".json"
-    print(JsonImporter.import_data(f_path + f_ext))

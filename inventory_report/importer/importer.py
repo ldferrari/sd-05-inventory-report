@@ -9,6 +9,6 @@ class Importer(ABC):
     @abstractmethod
     def import_data(self, file_path):
         """
-        Importa o arquivo passado no parametro file_pat
+        Importa o arquivo passado no parametro file_path
         """
         ...

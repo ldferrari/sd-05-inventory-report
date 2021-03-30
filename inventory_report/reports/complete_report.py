@@ -1,4 +1,4 @@
-from inventory_report.reports.simple_report import SimpleReport, example
+from inventory_report.reports.simple_report import SimpleReport
 
 
 class CompleteReport(SimpleReport):
@@ -22,7 +22,3 @@ class CompleteReport(SimpleReport):
             stk = list(company.values())
             report += f"- {stk[0]}: {stk[1]}\n"
         return report
-
-
-if __name__ == "__main__":
-    print(CompleteReport.generate(example))

@@ -53,11 +53,3 @@ class Inventory:
             return SimpleReport.generate(cls.data)
         elif report_type == "completo":
             return CompleteReport.generate(cls.data)
-
-
-if __name__ == "__main__":
-    f_path = "inventory_report/data/inventory"
-    f_ext = ".json"
-    print(Inventory.import_data(f_path + f_ext, "simples"))
-    print("")
-    print(Inventory.import_data(f_path + f_ext, "completo"))

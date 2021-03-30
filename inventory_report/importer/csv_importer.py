@@ -18,9 +18,3 @@ class CsvImporter(Importer):
                 data = csv.DictReader(file, delimiter=",")
                 cls.data = list(data)
         return cls.data
-
-
-if __name__ == "__main__":
-    f_path = "inventory_report/data/inventory"
-    f_ext = ".csv"
-    print(CsvImporter.import_data(f_path + f_ext))
