@@ -20,11 +20,11 @@ def get_oldest_fabrication_date(productsList):
 
 
 def nearest_due_date(productsList):
-    nearest = str_to_date(productsList[0]["data_de_validade"])
+    nearest_due_date = str_to_date(productsList[0]["data_de_validade"])
     now = str_to_date(datetime.today().strftime("%Y-%m-%d"))
     for company in productsList:
         new_date = str_to_date(company["data_de_validade"])
-        if(nearest > new_date > now):
+        if(nearest_due_date > new_date > now):
             nearest_due_date = new_date
     return nearest_due_date
 
