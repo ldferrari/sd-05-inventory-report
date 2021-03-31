@@ -42,19 +42,23 @@ def read_xml(file_path):
         raise ValueError("File not found")
 
 
-def read_file(file_path):
-    if file_path.endswith(".csv"):
-        return read_csv(file_path)
-    if file_path.endswith("json"):
-        return read_json(file_path)
-    if file_path.endswith(".xml"):
-        return read_xml(file_path)
+def create_report(file_path):
+    if file_path.split('.')[1] == 'csv':
+        report = read_csv(file_path)
+        return report
+    if file_path.split('.')[1] == 'json':
+        report = read_json(file_path)
+        return report
+    if file_path.split('.')[1] == 'xml':
+        report = read_xml(file_path)
+        return report
 
 
 class Inventory:
     @classmethod
     def import_data(cls, file_path, report_type):
-        report = read_file(file_path)
+        report = create_report(file_path)
+
         if (report_type == "simples"):
             return SimpleReport.generate(report)
 
