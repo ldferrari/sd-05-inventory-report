@@ -7,10 +7,6 @@ from inventory_report.importer.xml_importer import XmlImporter
 
 class Inventory:
 
-    # Criar uma function que recebe o tipo e formato do relatorio
-    # A função vai escolher qual método vai usar para "puxar" a lista
-    # A função vai "tratar" a lista usando o SimpleReport ou o CompleteReport
-
     @classmethod
     def import_data(self, path, report_type):
         if path.split('.')[1] == 'csv':

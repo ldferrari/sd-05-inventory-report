@@ -22,13 +22,11 @@ class CompleteReport(SimpleReport):
             if empresa not in empresas:
                 empresas.append(empresa)
             if empresa not in products_from_empresas:
-                products_from_empresas[empresa] = []
-            products_from_empresas[empresa].append(1)
+                products_from_empresas[empresa] = 0
+            products_from_empresas[empresa] += 1
 
         for empresa in empresas:
-            qtd_product = 0
-            for produto_count in products_from_empresas[empresa]:
-                qtd_product = qtd_product + produto_count
+            qtd_product = products_from_empresas[empresa]
             quantidade_produtos.append(f"""- {empresa}: {qtd_product}\n""")
 
         return string_template(simple_report, quantidade_produtos)
