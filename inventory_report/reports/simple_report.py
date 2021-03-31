@@ -31,7 +31,6 @@ class SimpleReport:
                 .date() > datetime.strptime(hoje, "%Y-%m-%d").date()
             ]
         )
-        print(validade)
         return validade
 
     @classmethod
