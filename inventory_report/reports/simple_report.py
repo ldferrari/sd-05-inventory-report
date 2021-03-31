@@ -1,6 +1,7 @@
 from datetime import datetime
 from statistics import mode
 
+
 class SimpleReport:
     def __init__(self):
         pass
@@ -20,14 +21,14 @@ class SimpleReport:
     @classmethod
     def nearest(cls, list):
         hoje = datetime.today().strftime('%Y-%m-%d')
-        validade = min (
+        validade = min(
             [
                 datetime.strptime(
                     data["data_de_validade"], "%Y-%m-%d"
                 ).date()
                 for data in list
-                if datetime.strptime(data["data_de_validade"], "%Y-%m-%d").date()
-                > datetime.strptime(hoje, "%Y-%m-%d").date()
+                if datetime.strptime(data["data_de_validade"], "%Y-%m-%d")
+                .date() > datetime.strptime(hoje, "%Y-%m-%d").date()
             ]
         )
         print(validade)
@@ -45,6 +46,8 @@ class SimpleReport:
         report += (f"Data de fabricação mais antiga: {oldest_date}\n")
         validade_date = cls.nearest(list)
         report += (f"Data de validade mais próxima: {validade_date}\n")
-        stock_date = cls.bigest_stock(list)
-        report += (f"Empresa com maior quantidade de produtos estocados: {stock_date}\n")
+        st_date = cls.bigest_stock(list)
+        report += (
+            f"Empresa com maior quantidade de produtos estocados: {st_date}\n"
+        )
         return report
