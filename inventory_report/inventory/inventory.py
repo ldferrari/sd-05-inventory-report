@@ -21,7 +21,7 @@ class Inventory:
         if test.endswith(".csv"):
             data = read_data_csv(test)
         if test.endswith(".json"):
-            data = read_data_json(test)    
+            data = read_data_json(test)
         if type == 'completo':
             report = CompleteReport.generate(data)
         else:
