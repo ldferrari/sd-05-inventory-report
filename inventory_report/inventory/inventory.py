@@ -1,4 +1,5 @@
 import csv
+import json
 from inventory_report.reports.complete_report import CompleteReport
 from inventory_report.reports.simple_report import SimpleReport
 
@@ -16,12 +17,21 @@ def parse_csv(path):
     return newArr
 
 
+def parse_json(path):
+    with open(path) as file:
+        json_content = json.load(file)
+    return json_content
+
+
 class Inventory(CompleteReport):
     def __init__(self):
         CompleteReport.__init__(self)
 
     def import_data(path, tipo):
-        products = parse_csv(path)
+        if path.endswith('.csv'):
+            products = parse_csv(path)
+        if path.endswith('.json'):
+            products = parse_json(path)
         if tipo == "simples":
             return SimpleReport.generate(products)
         if tipo == "completo":
