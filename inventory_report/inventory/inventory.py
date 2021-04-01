@@ -1,5 +1,6 @@
 import csv
 import json
+import xmltodict
 from inventory_report.reports.complete_report import CompleteReport
 from inventory_report.reports.simple_report import SimpleReport
 
@@ -23,16 +24,34 @@ def parse_json(path):
     return json_content
 
 
+def parse_xml(path):
+    with open(path) as file:
+        xml_content = xmltodict.parse(file.read())
+    new_list = [dict(item) for item in xml_content['dataset']['record']]
+    return new_list
+
+
+def detectar_arquivo(path):
+    if path.endswith('.csv'):
+        products = parse_csv(path)
+    if path.endswith('.json'):
+        products = parse_json(path)
+    if path.endswith('.xml'):
+        products = parse_xml(path)
+    return products
+
+
 class Inventory(CompleteReport):
     def __init__(self):
         CompleteReport.__init__(self)
 
     def import_data(path, tipo):
-        if path.endswith('.csv'):
-            products = parse_csv(path)
-        if path.endswith('.json'):
-            products = parse_json(path)
+        products = detectar_arquivo(path)
         if tipo == "simples":
             return SimpleReport.generate(products)
         if tipo == "completo":
             return CompleteReport.generate(products)
+
+
+if __name__ == "__main__":
+    print(Inventory.import_data('inventory.xml', 'simples'))
