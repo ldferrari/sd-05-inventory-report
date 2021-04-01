@@ -26,12 +26,31 @@ class Inventory():
             return result_json
 
     @classmethod
+    def edit_xml(cls, list):
+        result_xml = []
+        with open(list, "r") as date:
+            reader_xml = ET.parse(date).getroot()
+            for company in reader_xml:
+                objecto = {}
+                for company_date in company:
+                    objecto[company_date.tag] = company_date.text
+                result_xml.append(objecto)
+            return result_xml
+
+    @classmethod
+    def report_size(cls, report, date):
+        if report == "simples":
+            return SimpleReport.generate(date)
+        if report == "completo":
+            return CompleteReport.generate(date)
+
+    @classmethod
     def import_data(cls, list, report):
         if list.endswith(".csv"):
             date = cls.edit_csv(list)
         if list.endswith(".json"):
             date = cls.edit_json(list)
-        if report == "simples":
-            return SimpleReport.generate(date)
-        if report == "completo":
-            return CompleteReport.generate(date)
+        if list.endswith(".xml"):
+            date = cls.edit_xml(list)
+        final_result = cls.report_size(report, date)
+        return final_result
