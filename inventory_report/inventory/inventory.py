@@ -11,11 +11,14 @@ def parse_csv(path):
         header, *data = filepath_reader
     newArr = []
     for item in data:
-        produto = {}
-        for inf in item:
-            produto.update({header[item.index(inf)]: inf})
-        newArr.append(produto)
+        newArr.append(dict(zip(header, item)))
     return newArr
+
+
+# forma antiga:
+# produto = {}
+# for inf in item:
+# produto.update({header[item.index(inf)]: inf})
 
 
 def parse_json(path):
@@ -52,6 +55,3 @@ class Inventory(CompleteReport):
         if tipo == "completo":
             return CompleteReport.generate(products)
 
-
-if __name__ == "__main__":
-    print(Inventory.import_data('inventory.xml', 'simples'))
