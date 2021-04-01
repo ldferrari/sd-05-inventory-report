@@ -10,3 +10,4 @@ class CsvImporter(Importer):
         with open(filepath) as file:
             csv_data = csv.DictReader(file)
             return list(csv_data)
+        

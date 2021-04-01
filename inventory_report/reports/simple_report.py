@@ -22,3 +22,4 @@ class SimpleReport:
             f"Data de validade mais próxima: {near_expire}\n"
             f"Empresa com maior quantidade de produtos estocados: {big_st}\n"
         )
+        

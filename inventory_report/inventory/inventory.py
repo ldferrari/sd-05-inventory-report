@@ -41,3 +41,4 @@ class Inventory:
         else:
             report = SimpleReport.generate(data)
         return report
+    

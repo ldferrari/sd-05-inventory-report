@@ -16,3 +16,4 @@ class XmlImporter(Importer):
             tree.append(dict_format)
         print(tree)
         return tree
+    
