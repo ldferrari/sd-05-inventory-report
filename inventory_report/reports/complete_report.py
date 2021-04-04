@@ -44,7 +44,6 @@ test_function = [
 
 def stock_per_companies(products):
     companies = Counter(name["nome_da_empresa"] for name in products)
-    # print(companies)
     qty = []
     for company in companies:
         qty.append(f"- {company}: {companies[company]}")
