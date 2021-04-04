@@ -10,21 +10,21 @@ def retorna_dic_estoque(lista):
     return dict(contador_ocorrencia)
 
 
-def retorna_relatorio_completo(relatorio_simples, lista):
-    relatorio_simples_formatado = relatorio_simples + "\n"
+def retorna_relatorio_completo(lista):
+    relatorio_simples = SimpleReport.generate(lista) + "\n"
     estoque = retorna_dic_estoque(lista)
 
     detalhe_estoque = "Produtos estocados por empresa: \n"
     for key in estoque:
         detalhe_estoque += ("- %s: %s\n" % (key, estoque[key]))
-    relatorio_completo = relatorio_simples_formatado + detalhe_estoque
+    relatorio_completo = relatorio_simples + detalhe_estoque
     return relatorio_completo
 
 
-class CompleteReport(SimpleReport):
+class CompleteReport:
     @classmethod
     def generate(cls, lista):
-        return retorna_relatorio_completo(super().generate(lista), lista)
+        return retorna_relatorio_completo(lista)
 
 #   https://stackoverflow.com/questions/11068986/how-to-convert-counter-object-to-dict
 #   https://stackoverflow.com/questions/3545331/how-can-i-get-dictionary-key-as-variable-directly-in-python-not-by-searching-fr
