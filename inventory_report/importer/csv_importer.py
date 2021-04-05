@@ -19,4 +19,3 @@ class CsvImporter(Importer):
             for item in data:
                 newArr.append(dict(zip(header, item)))
             return newArr
-            

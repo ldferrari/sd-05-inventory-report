@@ -16,4 +16,3 @@ class XmlImporter(Importer):
         else:
             new_list = [dict(item) for item in xml_cont['dataset']['record']]
             return new_list
-            

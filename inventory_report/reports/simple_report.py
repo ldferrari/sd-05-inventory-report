@@ -52,4 +52,3 @@ class SimpleReport:
         v_m_p = validade(lista)
         quantidade = quant(lista)
         return f'{f_a}{f_m_a}\n{v_p}{v_m_p}\n{qtd}{quantidade}\n'
-        
