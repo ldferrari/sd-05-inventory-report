@@ -43,9 +43,9 @@ class SimpleReport:
     def generate(cls, list):
         report = ""
         oldest_date = cls.oldest(list)
-        report += (f"Data de fabricação mais antiga: {oldest_date}\n")
+        report += f"Data de fabricação mais antiga: {oldest_date}\n"
         valid_date = cls.neardest(list)
-        report += (f"Data de validade mais próxima: {valid_date} \n")
+        report += f"Data de validade mais próxima: {valid_date} \n"
         stock = cls.bigest_stock(list)
         report += (
             f"Empresa com maior quantidade de produtos estocados: {stock}\n"
