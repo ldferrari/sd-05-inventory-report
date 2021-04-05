@@ -21,7 +21,7 @@ class CsvImporter(Importer):
             assert filepath.split('.')[1] == 'csv'
             with open(filepath) as file:
                 beach_status_reader = csv.reader(
-                  file, delimiter=",", quotechar='"'
+                  file, delimiter=","
                 )
                 header, *data = beach_status_reader
         except AssertionError:

@@ -13,7 +13,7 @@ class Inventory:
             new_list = CsvImporter.import_data(path)
         elif path.split('.')[1] == 'xml':
             new_list = XmlImporter.import_data(path)
-        elif path.split('.')[1] == 'json':
+        else:
             new_list = JsonImporter.import_data(path)
 
         if report_type == 'completo':

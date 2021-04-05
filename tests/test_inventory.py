@@ -29,6 +29,7 @@ def test_validar_importerdata_importar_um_arquivo_csv_completo():
     )
     report = Inventory.import_data('inventory_report/data/inventory.csv',
                                    'completo')
+    print(report)
     assert report == expect
 
 
