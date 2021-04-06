@@ -1,5 +1,5 @@
-from collections import Counter
 from inventory_report.reports.simple_report import SimpleReport
+from collections import Counter
 
 
 class CompleteReport(SimpleReport):
@@ -10,7 +10,7 @@ class CompleteReport(SimpleReport):
 
         new_company = ""
         for company in companies_number:
-            new_company += f"{company}: {companies_number[company]}\n"
+            new_company += f"- {company}: {companies_number[company]}\n"
             return new_company
 
     @classmethod
