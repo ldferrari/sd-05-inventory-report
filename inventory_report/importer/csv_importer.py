@@ -1,6 +1,6 @@
 from .importer import Importer
 import csv
-#Luca & Zambelli
+# Luca & Zambelli
 
 
 class CsvImporter(Importer):
