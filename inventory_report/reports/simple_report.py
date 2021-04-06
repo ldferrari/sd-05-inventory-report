@@ -32,7 +32,7 @@ class SimpleReport:
                 datetime.date.fromisoformat(report["data_de_validade"])
                 )
             if datein:
-                datas_de_validade.append(datein)    
+                datas_de_validade.append(datein)
             empresas.append(report["nome_da_empresa"])
             # c = Counter(self.empresas)
 
