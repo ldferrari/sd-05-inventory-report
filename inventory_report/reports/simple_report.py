@@ -14,8 +14,8 @@ class SimpleReport:
 
         date_making = min(
             [
-                datetime.strptime(item["data_de_fabricacao"], "%Y-%m-%d").date()
-                for item in list
+                datetime.strptime(itm["data_de_fabricacao"], "%Y-%m-%d").date()
+                for itm in list
             ]
         )
 
@@ -30,12 +30,12 @@ class SimpleReport:
             ]
         )
 
-        max_storage = mode([item["nome_da_empresa"] for item in list])
+        max_storag = mode([item["nome_da_empresa"] for item in list])
 
         report_formatted = (
           f"Data de fabricação mais antiga: {date_making}\n"
           f"Data de validade mais próxima: {date_expiration}\n"
-          f"Empresa com maior quantidade de produtos estocados: {max_storage}\n"
+          f"Empresa com maior quantidade de produtos estocados: {max_storag}\n"
         )
 
         return report_formatted
