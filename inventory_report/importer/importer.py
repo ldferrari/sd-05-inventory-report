@@ -5,5 +5,3 @@ class Importer(ABC):
     @abstractmethod
     def import_data(self, filepath):
         raise NotImplementedError
-  
-
