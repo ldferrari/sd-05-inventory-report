@@ -7,7 +7,7 @@ class InventoryInterator(Iterator):
 
     def __init__(self, el):
         self.elements = el
-   
+
     def __next__(self):
         try:
             element = self.elements[self.current_index]
