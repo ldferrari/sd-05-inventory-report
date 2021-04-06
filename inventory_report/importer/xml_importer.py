@@ -19,3 +19,5 @@ class XmlImporter(Importer):
                 dicionario.append(objeto)
 
         return dicionario
+
+# up
